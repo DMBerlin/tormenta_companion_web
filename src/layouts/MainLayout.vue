@@ -1,106 +1,76 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
+  <q-layout view="lHr lpR fFf">
+
+    <q-header reveal bordered class="bg-grey-10 text-white" height-hint="98">
       <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="leftDrawerOpen = !leftDrawerOpen"
-        />
-
         <q-toolbar-title>
-          Quasar App
+          <q-avatar>
+            <img src="../assets/favicon-96x96.png">
+          </q-avatar>
+          <strong>
+            Tormenta 20 - Companion
+          </strong>
         </q-toolbar-title>
-
-        <div>Quasar v{{ $q.version }}</div>
+      </q-toolbar>
+      <q-toolbar class="bg-grey-9" inset>
+        <q-btn-dropdown
+          unelevated
+          label="Minha Coleção"
+        >
+          <div class="row no-wrap q-pa-md bg-grey-10">
+            <q-btn unelevated style="width: 280px;" @click="$router.push({ path: '/my-characters' })">
+              <q-card flat style="width: 280px; height: 120px; overflow: hidden;">
+                <q-card-section style="height: 120px;" class="meus-personagens-bg">
+                </q-card-section>
+                <q-item style="position: absolute; bottom: 0; width: 100%; height: 40px; background-color: rgba(0, 0, 0, 0.5);">
+                  <q-item-section>
+                    <q-item-label class="text-grey-4 text-center" style="font-size: 16px;">
+                      Meus Personagens
+                    </q-item-label>
+                  </q-item-section>
+                </q-item>
+              </q-card>
+            </q-btn>
+          </div>
+        </q-btn-dropdown>
       </q-toolbar>
     </q-header>
 
-    <q-drawer
-      v-model="leftDrawerOpen"
-      show-if-above
-      bordered
-      content-class="bg-grey-1"
-    >
-      <q-list>
-        <q-item-label
-          header
-          class="text-grey-8"
-        >
-          Essential Links
-        </q-item-label>
-        <EssentialLink
-          v-for="link in essentialLinks"
-          :key="link.title"
-          v-bind="link"
-        />
-      </q-list>
-    </q-drawer>
-
-    <q-page-container>
-      <router-view />
+    <q-page-container class="t20-bg-grey-1">
+      <transition
+        name="fade"
+        mode="out-in"
+      >
+        <router-view />
+      </transition>
     </q-page-container>
+
   </q-layout>
 </template>
 
-<script lang="ts">
-import EssentialLink from 'components/EssentialLink.vue'
-
-const linksData = [
-  {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev'
-  },
-  {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework'
-  },
-  {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev'
-  },
-  {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev'
-  },
-  {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev'
-  },
-  {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev'
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev'
+<script>
+export default {
+  data () {
+    return {
+    }
   }
-]
-
-import { Vue, Component } from 'vue-property-decorator'
-
-@Component({
-  components: { EssentialLink }
-})
-export default class MainLayout extends Vue {
-  leftDrawerOpen = false;
-  essentialLinks = linksData;
 }
 </script>
+<style scoped>
+  .meus-personagens-bg {
+    background-image: url("../assets/menu-images/meus_personagens.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+.fade-enter-active,
+.fade-leave-active {
+  transition-duration: 0.3s;
+  transition-property: opacity;
+  transition-timing-function: ease;
+}
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0
+}
+</style>
