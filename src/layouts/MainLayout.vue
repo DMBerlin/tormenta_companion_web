@@ -5,7 +5,7 @@
       <q-toolbar>
         <q-toolbar-title>
           <q-avatar>
-            <img src="../assets/favicon-96x96.png">
+            <img src="../assets/favicon-96x96.png" @click="$router.push({ path: '/' })" style="cursor: pointer;">
           </q-avatar>
           <strong>
             Tormenta 20 - Companion
@@ -18,7 +18,7 @@
           label="Minha Coleção"
         >
           <div class="row no-wrap q-pa-md bg-grey-10">
-            <q-btn unelevated style="width: 280px;" @click="$router.push({ path: '/my-characters' })">
+            <q-btn unelevated style="width: 280px;" @click="$router.push({ path: '/characters/my' })">
               <q-card flat style="width: 280px; height: 120px; overflow: hidden;">
                 <q-card-section style="height: 120px;" class="meus-personagens-bg">
                 </q-card-section>
