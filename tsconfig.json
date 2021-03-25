@@ -4,6 +4,13 @@
     "baseUrl": ".",
     "experimentalDecorators": true,
     "strictPropertyInitialization": false,
-    "createDefaultProgram": true
+    // "module": "commonjs",
+    // "declaration": true,
+    // "removeComments": true,
+    // "emitDecoratorMetadata": true,
+    // "allowSyntheticDefaultImports": true,
+    // "target": "es2018",
+    // "sourceMap": true,
+    // "outDir": "./dist",
   }
 }
