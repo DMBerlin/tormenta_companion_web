@@ -4,6 +4,6 @@
     "baseUrl": ".",
     "experimentalDecorators": true,
     "strictPropertyInitialization": false,
-    // "createDefaultProgram": true
+    "createDefaultProgram": true
   }
 }

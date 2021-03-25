@@ -12,18 +12,23 @@
       <div class="col">
         <q-stepper
           v-model="builderStep"
+          active-color="orange-14"
+          inactive-color="amber-14"
           alternative-labels
           header-nav
           animated
+          flat
         >
           <q-step
             :name="1"
             title="Raça"
             :done="builderStep > 1"
           >
-            For each ad campaign that you create, you can control how much you're willing to
-            spend on clicks and conversions, which networks and geographical locations you want
-            your ads to show on, and more.
+            <div class="flex row full-width items-center content-center justify-center">
+              <div class="flex col-8">
+                <race-select />
+              </div>
+            </div>
           </q-step>
 
           <q-step
@@ -103,7 +108,7 @@
           </q-step>
 
           <template v-slot:navigation>
-            <q-stepper-navigation>
+            <q-stepper-navigation class="items-right content-right">
               <q-btn @click="builderStep++" color="primary" label="Continue" />
             </q-stepper-navigation>
           </template>
@@ -114,9 +119,14 @@
 </template>
 
 <script lang="ts">
+import RaceSelect from 'src/components/characters/builder/RaceSelect.vue'
 import { Vue, Component } from 'vue-property-decorator'
 
-@Component
+@Component({
+  components: {
+    'race-select': RaceSelect
+  }
+})
 export default class NewCharacter extends Vue {
   private builderStep:number
 

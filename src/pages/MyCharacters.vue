@@ -18,7 +18,7 @@
           Meus Personagens
         </q-item-label>
         <q-item-label class="text-body text-grey-6">
-          A lista dos seus personagens criados até aqui.
+          A lista dos seus personagens criados até o momento.
         </q-item-label>
         <q-separator />
       </q-item-section>

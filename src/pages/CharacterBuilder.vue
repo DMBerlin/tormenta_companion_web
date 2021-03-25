@@ -44,7 +44,7 @@
         </q-item-section>
         <q-item-section>
           <q-item-label>
-            Defina o valor de atributos do seu personagem jogando 4d6, descartando o menor valor.
+            Compre seus valores de atributos do seu personagem livremente, utilizando 20 pontos.
           </q-item-label>
         </q-item-section>
       </q-item>
