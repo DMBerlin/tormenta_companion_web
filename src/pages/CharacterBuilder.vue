@@ -20,7 +20,7 @@
       <q-space class="col-3" />
     </div>
     <div class="row items-center content-center justify-center q-gutter-md">
-      <q-item class="col-3 q-ma-md q-pa-md shadow-1 bg-grey-4" disable>
+      <q-item class="col-3 q-ma-md q-pa-md shadow-1 bg-grey-4" style="min-height: 120px;" disable>
         <q-item-section >
           <q-item-label class="text-grey-6 text-center">
             <strong>
@@ -34,7 +34,7 @@
           </q-item-label>
         </q-item-section>
       </q-item>
-      <q-item class="col-3 q-ma-md q-pa-md shadow-1 bg-grey-1" clickable @click="$router.push({ path: '/characters/builder/new' })">
+      <q-item class="col-3 q-ma-md q-pa-md shadow-1 bg-grey-1" style="min-height: 120px;" clickable @click="$router.push({ path: '/characters/builder/new' })">
         <q-item-section>
           <q-item-label class="text-grey-6 text-center">
             <strong>

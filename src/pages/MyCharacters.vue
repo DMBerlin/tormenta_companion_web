@@ -24,6 +24,16 @@
       </q-item-section>
       <q-space class="col-1" />
     </q-item>
+    <q-page-container>
+      <q-item>
+        <q-item-section class="items-center content-center justify-center">
+          <q-icon name="style" size="56px" color="grey-5" />
+          <q-item-label class="text-h5 text-grey-5">
+            Vazio
+          </q-item-label>
+        </q-item-section>
+      </q-item>
+    </q-page-container>
   </q-page>
 </template>
 
