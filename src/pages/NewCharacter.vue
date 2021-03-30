@@ -26,7 +26,7 @@
           >
             <div class="flex row full-width items-center content-center justify-center">
               <div class="flex col-8">
-                <race-select />
+                <race-select :model="characterModel" />
               </div>
             </div>
           </q-step>
@@ -121,6 +121,7 @@
 <script lang="ts">
 import RaceSelect from 'src/components/characters/builder/RaceSelect.vue'
 import { Vue, Component } from 'vue-property-decorator'
+import { CharacterBuilderType, CharacterSheetModel } from 'src/models/character-sheet.model'
 
 @Component({
   components: {
@@ -129,10 +130,14 @@ import { Vue, Component } from 'vue-property-decorator'
 })
 export default class NewCharacter extends Vue {
   private builderStep:number
+  private characterModel:CharacterSheetModel
 
   constructor () {
     super()
     this.builderStep = 1
+    if (this.$route.query.mode === 'default') {
+      this.characterModel = new CharacterSheetModel(CharacterBuilderType.DEFAULT)
+    }
   }
 }
 </script>

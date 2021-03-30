@@ -34,7 +34,7 @@
           </q-item-label>
         </q-item-section>
       </q-item>
-      <q-item class="col-3 q-ma-md q-pa-md shadow-1 bg-grey-1" style="min-height: 120px;" clickable @click="$router.push({ path: '/characters/builder/new' })">
+      <q-item class="col-3 q-ma-md q-pa-md shadow-1 bg-grey-1" style="min-height: 120px;" clickable @click="$router.push({ path: '/characters/builder/new?mode=default' })">
         <q-item-section>
           <q-item-label class="text-grey-6 text-center">
             <strong>

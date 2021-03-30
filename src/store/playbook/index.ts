@@ -4,10 +4,10 @@ import actions from './actions'
 import mutations from './mutations'
 import state from './state'
 import { IModuleState } from '..'
-import { IRaceSelect } from 'src/interfaces/race/race-select.interface'
+import { IRace } from 'src/types/races/race-select.types'
 
 export interface IPlaybookModule {
-  races: IRaceSelect[]
+  races: IRace[]
 }
 
 export const playbookModule:Module<IPlaybookModule, IModuleState> = {

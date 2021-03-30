@@ -16,7 +16,7 @@ Vue.use(Vuex)
  */
 
 export interface IModuleState {
-  playbook:IPlaybookModule
+  playbookModule:IPlaybookModule
 }
 
 export default function (/* { ssrContext } */) {
