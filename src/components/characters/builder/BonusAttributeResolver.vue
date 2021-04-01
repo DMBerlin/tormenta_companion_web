@@ -20,7 +20,7 @@ import { IRaceProps } from 'src/types/races/race-select.types'
 import { Vue, Component, Prop, Watch } from 'vue-property-decorator'
 
 @Component
-export default class BonusAttributeSelector extends Vue {
+export default class BonusAttributeResolver extends Vue {
   @Prop({
     required: true,
     default: () => ({

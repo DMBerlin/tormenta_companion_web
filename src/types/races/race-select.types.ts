@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import { VueClass } from 'vue-class-component/lib/declarations'
+import { ISkillOrPowerProps } from 'src/types/builder/skill-or-powers.types'
 
 export interface IRaceProps {
   attributes?:string[]
@@ -16,7 +17,7 @@ export interface IRace {
     title: string,
     description: string,
     componentResolver?: VueClass<Vue> | null,
-    props?: IRaceProps
+    props?: IRaceProps | ISkillOrPowerProps
   }>,
   dialog?: {
     visible: boolean

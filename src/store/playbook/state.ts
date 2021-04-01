@@ -1,4 +1,5 @@
-import BonusAttributeSelector from 'src/components/characters/builder/BonusAttributeSelector.vue'
+import BonusAttributeResolver from 'src/components/characters/builder/BonusAttributeResolver.vue'
+import SkillOrPowerResolver from 'src/components/characters/builder/SkillOrPowerResolver.vue'
 import { IRace } from 'src/types/races/race-select.types'
 import { IPlaybookModule } from '.'
 
@@ -24,7 +25,7 @@ function state ():IPlaybookModule {
           {
             title: 'Atributos Raciais',
             description: '+2 em três atributos diferentes.',
-            componentResolver: BonusAttributeSelector,
+            componentResolver: BonusAttributeResolver,
             props: {
               attributes: ['Força', 'Constituição', 'Destreza', 'Inteligência', 'Sabedoria', 'Carisma'],
               maxValues: 3,
@@ -37,7 +38,13 @@ function state ():IPlaybookModule {
             a sua escolha (não precisam ser da sua classe).
             Você pode trocar uma dessas perícias por um poder
             geral a sua escolha.`,
-            componentResolver: null
+            componentResolver: SkillOrPowerResolver,
+            props: {
+              options: [
+                { label: '2 perícias', value: 0, skills: 2, powers: 0 },
+                { label: '1 perícia e 1 poder', value: 1, skills: 1, powers: 1 }
+              ]
+            }
           }
         ],
         dialog: {
