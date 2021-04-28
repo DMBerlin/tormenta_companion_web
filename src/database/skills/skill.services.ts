@@ -818,6 +818,415 @@ export class SkillService {
             kit de ladrão. Sem ele, você sofre –5 no teste.`
           }
         ]
+      },
+      {
+        name: SKILL_LIST.LUTA,
+        attribute: this.attributeService.getAttributeByName(ATTRIBUTE_LIST.FORCA),
+        trained: false,
+        penalty: false,
+        description: 'Esta perícia mede sua capacidade de luta corpo a corpo, seja com armas brancas, seja desarmado.',
+        abilities: [
+          {
+            name: 'Ataque Corpo a Corpo',
+            description: `Para fazer um ataque
+            corpo a corpo você faz um teste de Luta. A CD
+            é a Defesa do alvo. Se você acertar, causa dano de
+            acordo com a arma utilizada. Veja o Capítulo 5:
+            Jogando para os modificadores aplicáveis a testes
+            de ataque.`
+          }
+        ]
+      },
+      {
+        name: SKILL_LIST.MISTICISMO,
+        attribute: this.attributeService.getAttributeByName(ATTRIBUTE_LIST.INTELIGENCIA),
+        trained: true,
+        penalty: false,
+        description: 'Esta perícia envolve o conhecimento de magias, itens mágicos e fenômenos sobrenaturais.',
+        abilities: [
+          {
+            name: 'Detectar Magia',
+            cd: 15,
+            description: `Como uma ação
+            completa, você detecta a presença e intensidade de
+            auras mágicas (magias ativas e itens mágicos) em
+            alcance curto. A intensidade de uma aura mágica
+            depende do círculo da magia ou categoria do item
+            mágico. Magias de 1º e 2º círculos e itens mágicos
+            menores geram uma aura tênue, magias de 3º e 4º
+            círculos e itens mágicos médios geram uma aura
+            moderada e magias de 5º círculo e itens mágicos
+            maiores geram uma aura poderosa. Magias lançadas
+            por um deus maior e artefatos geram uma aura
+            avassaladora. Caso a aura mágica esteja atrás de
+            uma barreira física, você sofre uma penalidade em
+            seu teste (–5 para madeira ou pedra, –10 para ferro
+            ou chumbo).`
+          },
+          {
+            name: 'Identificar Criatura',
+            description: `Com uma ação completa, você pode
+            identificar uma criatura mágica (construtos, dragões,
+            fadas, mortos-vivos etc.), assim como seus poderes
+            e fraquezas. Se passar, lembra uma característica
+            da criatura, como um poder ou vulnerabilidade.
+            Para cada 5 pontos pelos quais o resultado do teste
+            superar a CD, você lembra outra característica. Se
+            falhar por 5 ou mais, tira uma conclusão errada (por
+            exemplo, acreditar que uma criatura é vulnerável a
+            fogo, quando na verdade é vulnerável a frio). CD do
+            teste é igual a 15 + ND da criatura.`
+          },
+          {
+            name: 'Identificar Item Mágico',
+            description: `Você pode
+            gastar uma hora para estudar um item mágico e
+            identificar seus poderes, incluindo como ativá-lo
+            e quantos PM restam (se for o caso). A CD é 20
+            para itens mágicos menores, 25 para médios e 30
+            para itens mágicos maiores. Você pode sofrer uma
+            penalidade de –10 no teste para diminuir o tempo
+            para uma ação completa.`
+          },
+          {
+            name: 'Identificar Magia',
+            description: `Quando alguém lança uma magia,
+            você pode adivinhar qual é através de seus gestos e
+            palavras. Este uso é uma reação. CD é igual a 15 +
+            custo em PM da magia.`
+          },
+          {
+            name: 'Informação',
+            description: `Você pode responder dúvidas
+            relativas a magias, itens mágicos, fenômenos sobrenaturais,
+            runas, profecias, planos de existência etc.
+            A CD é 10 para questões simples, 20 para questões
+            complexas e 30 para mistérios e enigmas.`
+          },
+          {
+            name: 'Lançar Magia de Armadura',
+            description: `Lançar uma magia
+            arcana usando armadura exige um teste. Esse teste
+            sofre penalidade de armadura. Se falhar, a magia não
+            funciona, mas gasta pontos de mana mesmo assim. CD é
+            igual a 20 + custo em PM da magia.`
+          }
+        ]
+      },
+      {
+        name: SKILL_LIST.NOBREZA,
+        attribute: this.attributeService.getAttributeByName(ATTRIBUTE_LIST.INTELIGENCIA),
+        trained: true,
+        penalty: false,
+        description: 'Você recebeu a educação de um nobre. Sabe desde supervisionar uma colheita a se portar em um baile.',
+        abilities: [
+          {
+            name: 'Etiqueta',
+            cd: 15,
+            description: 'Você sabe se portar como um nobre, ficando à vontade em ambientes aristocráticos.'
+          },
+          {
+            name: 'Informação',
+            description: `Você responde dúvidas relativas a
+            leis, tradições, linhagens e heráldica. A CD é 10 para
+            questões simples, 20 para questões complexas e 30
+            para mistérios e enigmas.`
+          }
+        ]
+      },
+      {
+        name: SKILL_LIST.OFICIO,
+        attribute: this.attributeService.getAttributeByName(ATTRIBUTE_LIST.INTELIGENCIA),
+        trained: true,
+        penalty: false,
+        description: `Ofício na verdade são várias perícias diferentes.
+        Cada uma permite fabricar itens de uma categoria.
+        • Armeiro. Armas, armaduras e escudos.
+        • Artesanato. Itens gerais.
+        • Alquimia. Itens da categoria Alquimia.
+        • Alfaiate. Itens da categoria Vestuário.
+        • Culinária. Itens da categoria Alimentação.
+        Você pode inventar outros tipos de Ofício, como
+        alvenaria, carpintaria, joalheria... Isso inclui profissões
+        (fazendeiro, pescador, estalajadeiro, escriba...) e artes
+        (escultura, pintura...). Nesses casos, converse com o
+        mestre para determinar que usos a perícia terá.`,
+        abilities: [
+          {
+            name: 'Consertar',
+            description: `Reparar um item destruído tem a
+            mesma CD para fabricá-lo. Cada tentativa consome
+            uma hora de trabalho e um sexto do preço original
+            do item. Em caso de falha, o tempo e o dinheiro são
+            perdidos (mas você pode tentar novamente).`
+          },
+          {
+            name: 'Fabricar',
+            description: `Você produz um item gastando
+            matéria-prima e tempo de trabalho. A matéria-prima
+            custa um terço do preço do item (veja o Capítulo
+            3: Equipamento). O tempo de trabalho depende
+            do preço do item: um dia para até T$ 10, uma semana
+            para até T$ 100, um mês para até T$ 1.000 e três
+            meses para mais de T$ 1.000. No fim do período, faça
+            um teste de Ofício. Se passar, você produz o item. Se
+            falhar, não produz o item, mas pode tentar de novo
+            gastando mais um dia. Se falhar por 5 ou mais, você
+            estraga a matéria-prima.
+            A CD depende do item. Itens simples (tigela de
+            barro, jarro, arma simples, armadura leve, escudos...)
+            têm CD 15. Itens complexos (fechadura, sino, arma
+            marcial, armadura pesada...) têm CD 20. A CD para
+            itens de alquimia, alimentação e vestuário é indicada
+            após a descrição do item.
+            Você pode sofrer uma penalidade de –5 no teste
+            para fabricar o item em uma categoria de tempo
+            menor (uma hora para itens de até T$ 10, um dia
+            para itens de até T$ 100 etc.).`
+          },
+          {
+            name: 'Identificar',
+            description: `Você pode identificar um item ligado
+            a seu Ofício. A CD é 10 para itens comuns e 20
+            para itens raros ou exóticos. Se passar, você descobre
+            as propriedades do item e seu preço.`
+          },
+          {
+            name: 'Sustento',
+            cd: 15,
+            description: `Com uma semana de trabalho
+            e um teste de Ofício, você ganha T$ 1, mais T$ 1
+            por ponto que seu teste exceder a CD. Por exemplo,
+            com um resultado 20, ganha T$ 6 pela semana de
+            trabalho. Trabalhadores sem treinamento usam testes
+            de atributo para susteto. De acordo com o mestre,
+            outras perícias podem ser usadas para sustento, como
+            Adestramento, Cura ou Sobrevivência.
+            Esta perícia exige um kit de ofício. Sem ele, você
+            sofre –5 no teste.`
+          }
+        ]
+      },
+      {
+        name: SKILL_LIST.PERCEPCAO,
+        attribute: this.attributeService.getAttributeByName(ATTRIBUTE_LIST.SABEDORIA),
+        trained: false,
+        penalty: false,
+        description: 'Você nota coisas usando os sentidos.',
+        abilities: [
+          {
+            name: 'Observar',
+            description: `Você pode notar coisas escondidas.
+            O teste é oposto à Furtividade do personagem
+            tentando não ser visto. Às vezes o alvo não está se
+            escondendo intencionalmente, mas ainda assim
+            exige um teste de Percepção para ser notado. Nesses
+            casos a dificuldade varia de 5 (uma pessoa em uma
+            praça com pouco movimento) até 20 (um soldado
+            específico em meio a uma batalha). Você também
+            pode perceber disfarces e falsificações (veja a perícia
+            Enganação) e ler lábios (CD 20).`
+          },
+          {
+            name: 'Ouvir',
+            description: `Você pode escutar barulhos sutis. Uma
+            conversa casual próxima tem CD 0 — ou seja, a
+            menos que exista alguma penalidade, você passa
+            automaticamente. Ouvir pessoas sussurrando tem
+            CD 15. Ouvir do outro lado de uma porta aumenta a
+            CD em +5. Você pode fazer testes de Percepção para
+            ouvir mesmo que esteja dormindo, mas sofre uma
+            penalidade de –10; um sucesso faz você acordar.
+            Perceber criaturas que não possam ser vistas tem
+            CD 20, ou +10 no teste de Furtividade da criatura, o
+            que for maior. Mesmo que você passe no teste, ainda
+            sofre penalidades normais por lutar sem ver o inimigo.`
+          }
+        ]
+      },
+      {
+        name: SKILL_LIST.PILOTAGEM,
+        attribute: this.attributeService.getAttributeByName(ATTRIBUTE_LIST.DESTREZA),
+        trained: true,
+        penalty: false,
+        description: 'Você sabe operar veículos como carroças, barcos e balões.',
+        abilities: [
+          {
+            name: 'Conduzir',
+            description: `Conduzir um veículo exige uma
+            ação de movimento e um teste de Pilotagem por
+            turno. A CD é 15 para condições boas (uma estrada,
+            para veículos terrestres; clima tranquilo, para veículos
+            aquáticos ou aéreos), 20 para condições ruins
+            (terreno liso, chuva ou ventania) e 25 para condições
+            terríveis (terreno com obstáculos, tempestade).`
+          }
+        ]
+      },
+      {
+        name: SKILL_LIST.PONTARIA,
+        attribute: this.attributeService.getAttributeByName(ATTRIBUTE_LIST.DESTREZA),
+        trained: false,
+        penalty: false,
+        description: 'Esta perícia mede sua capacidade de mira, seja com armas de arremesso, seja com armas de disparo.',
+        abilities: [
+          {
+            name: 'Ataque a Distância',
+            description: `Para fazer um ataque
+            à distância você faz um teste de Pontaria. A CD é a
+            Defesa do alvo. Se você acertar, causa dano de acordo
+            com a arma utilizada. Veja o Capítulo 5: Jogando
+            para os modificadores aplicáveis a testes de ataque.`
+          }
+        ]
+      },
+      {
+        name: SKILL_LIST.REFLEXOS,
+        attribute: this.attributeService.getAttributeByName(ATTRIBUTE_LIST.DESTREZA),
+        trained: false,
+        penalty: false,
+        description: 'Esta perícia mede sua capacidade de evitar ameaças que exigem reação rápida.',
+        abilities: [
+          {
+            name: 'Evitar Finta',
+            description: `Quando um oponente finta em
+            combate, você faz um teste de Reflexos oposto pelo
+            teste de Enganação dele. Se você passar, a finta falha.`
+          },
+          {
+            name: 'Resistência',
+            description: `Você usa Reflexos para resistir a
+            efeitos súbitos e de área. A CD é determinada pelo
+            efeito ao qual você está resistindo.`
+          }
+        ]
+      },
+      {
+        name: SKILL_LIST.RELIGIAO,
+        attribute: this.attributeService.getAttributeByName(ATTRIBUTE_LIST.SABEDORIA),
+        trained: true,
+        penalty: false,
+        description: 'Você possui conhecimento sobre os deuses e as religiões de Arton.',
+        abilities: [
+          {
+            name: 'Identificar Criatura',
+            description: `Com uma ação completa, você pode
+            identificar uma criatura divina (anjos, demônios,
+            mortos-vivos etc.). Veja a perícia Misticismo.
+            CD 15 + ND da criatura.`
+          },
+          {
+            name: 'Identificar Item Mágico',
+            description: 'Você pode identificar um item mágico divino. Veja a perícia Misticismo.'
+          },
+          {
+            name: 'Informação',
+            description: `Você pode responder dúvidas
+            relativas a deuses, profecias, planos de existência etc.
+            A CD é 10 para questões simples, 20 para questões
+            complexas e 30 para mistérios e enigmas.`
+          },
+          {
+            name: 'Rito',
+            cd: 20,
+            description: `Você realiza uma cerimônia
+            religiosa, como um batizado, casamento ou funeral.
+            Isso inclui a cerimônia de penitência para redimir
+            um devoto que tenha descumprido as Obrigações
+            & Restrições de sua divindade. Uma cerimônia de
+            penitência exige um sacrifício de T$ 100 por nível
+            de personagem do devoto ou a realização de uma
+            missão sagrada, de acordo com o mestre.`
+          }
+        ]
+      },
+      {
+        name: SKILL_LIST.SOBREVIVENCIA,
+        attribute: this.attributeService.getAttributeByName(ATTRIBUTE_LIST.SABEDORIA),
+        trained: false,
+        penalty: false,
+        description: 'Você pode se guiar nos ermos e reconhecer e evitar perigos da natureza.',
+        abilities: [
+          {
+            name: 'Acampamento',
+            description: `Você pode conseguir abrigo e
+            alimento nos ermos, caçando, pescando, colhendo
+            frutos etc. A CD depende do tipo de terreno: 15
+            para planícies e colinas, 20 para florestas e pântanos,
+            25 para desertos ou montanhas e 30 para regiões
+            planares perigosas ou áreas de Tormenta. Regiões
+            especialmente áridas ou estéreis e clima ruim (neve,
+            tempestade etc.) impõem uma penalidade de –5
+            (cumulativa). Se passar, você garante recuperação
+            normal para você e seu grupo (veja a página 106).`
+          },
+          {
+            name: 'Identificar Criatura',
+            description: `Com uma ação completa, você pode
+            identificar um animal. Veja a perícia Misticismo.
+            CD 15 + ND da criatura.`
+          },
+          {
+            name: 'Orientar-se',
+            description: `Um personagem viajando pelos
+            ermos precisa fazer um teste de Sobrevivência por
+            dia para avançar. A CD depende do tipo de terreno
+            (veja acima). Se passar, você avança seu deslocamento
+            normal. Se falhar, avança apenas metade. Se falhar
+            por 5 ou mais, se perde e não avança pelo dia inteiro.
+            Num grupo, um personagem deve ser escolhido
+            como guia. Personagens treinados em Sobrevivência
+            podem fazer testes para ajudá-lo. Entretanto, se mais
+            de um personagem quiser fazer o teste por si só,
+            todos deverão rolar os dados em segredo. Os jogadores
+            devem decidir qual guia seguir antes de verem
+            o resultado! O teste é exigido apenas em jornadas
+            perigosas (de acordo com o mestre).`
+          },
+          {
+            name: 'Rastrear',
+            description: `Você pode identificar e seguir rastros.
+            A CD varia de acordo com o solo: 10 para solo macio
+            (neve, lama), 15 para solo padrão (grama, terra), 20
+            para solo duro (rocha ou piso de interiores).
+            A CD diminui em –2 se as criaturas são Grandes,
+            em –5 se são Enormes e em –10 se são Colossais.
+            Também diminui em –1 para cada três criaturas no
+            grupo sendo seguido. Por outro lado, aumenta em
+            +2 se as criaturas são Pequenas e em +5 se são Minúsculas.
+            Também aumenta em +5 em visibilidade
+            precária (noite, chuva, neblina). Você precisa fazer
+            um teste para encontrar os rastros e mais um para
+            cada dia de perseguição. Enquanto rastreia, seu
+            deslocamento é reduzido à metade.
+            Se falhar, você pode tentar novamente gastando
+            mais um dia. Porém, a cada dia desde a criação dos
+            rastros, a CD aumenta em +1. Este uso só pode ser
+            tentado se você é treinado em Sobrevivência.`
+          }
+        ]
+      },
+      {
+        name: SKILL_LIST.VONTADE,
+        attribute: this.attributeService.getAttributeByName(ATTRIBUTE_LIST.SABEDORIA),
+        trained: false,
+        penalty: false,
+        description: 'Esta perícia envolve sua concentração e força de vontade.',
+        abilities: [
+          {
+            name: 'Concentração',
+            description: `Quando lança uma magia em
+            condições adversas, ou quando sofre dano durante a
+            execução de uma magia, você precisa fazer um teste
+            de Vontade. Veja o Capítulo 4: Magia.`
+          },
+          {
+            name: 'Resistência',
+            description: `Você usa Vontade para resistir
+            a efeitos mentais, como encantamentos e ilusões. A
+            CD é determinada pelo efeito.`
+          }
+        ]
       }
     ]
   }
