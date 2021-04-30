@@ -5,6 +5,8 @@
       v-model="selection"
       :options="props.attributes"
       :max-values="props.maxValues"
+      use-chips
+      stack-label
       label="Selecione seus atributos"
       class="q-ma-md"
       :rules="[

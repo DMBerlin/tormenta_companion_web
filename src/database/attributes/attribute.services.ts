@@ -13,7 +13,7 @@ export class AttributeService {
   constructor () {
     this.attributes = [
       {
-        name: 'Força',
+        name: ATTRIBUTE_LIST.FORCA,
         description: `A Força mede seu poder muscular, sua força
         física. O modificador de Força é aplicado em testes
         de Atletismo e Luta; rolagens de dano corpo a corpo
@@ -23,7 +23,7 @@ export class AttributeService {
         modifier: 0
       },
       {
-        name: 'Destreza',
+        name: ATTRIBUTE_LIST.DESTREZA,
         description: `A Destreza mede agilidade, reflexos, equilíbrio
         e coordenação motora. O modificador de Destreza é
         aplicado na Defesa e em testes de Acrobacia, Cavalgar,
@@ -33,7 +33,7 @@ export class AttributeService {
         modifier: 0
       },
       {
-        name: 'Constituição',
+        name: ATTRIBUTE_LIST.CONSTITUICAO,
         description: `A saúde e o vigor físico do herói são representados
         pela Constituição. Seu modificador é aplicado
         aos pontos de vida iniciais e por nível, e em testes
@@ -44,7 +44,7 @@ export class AttributeService {
         modifier: 0
       },
       {
-        name: 'Inteligência',
+        name: ATTRIBUTE_LIST.INTELIGENCIA,
         description: `A capacidade de raciocinar e resolver problemas
         é medida pela Inteligência. Você aplica o modificador
         de Inteligência em testes de Conhecimento, Guerra,
@@ -56,7 +56,7 @@ export class AttributeService {
         modifier: 0
       },
       {
-        name: 'Sabedoria',
+        name: ATTRIBUTE_LIST.SABEDORIA,
         description: `A Sabedoria representa a percepção e a força de
         vontade, além de bom senso e intuição. O modificador
         de Sabedoria é aplicado em testes de Cura, Intuição,
@@ -65,7 +65,7 @@ export class AttributeService {
         modifier: 0
       },
       {
-        name: 'Carisma',
+        name: ATTRIBUTE_LIST.CARISMA,
         description: `Carisma mede sua força de personalidade e
         capacidade de persuasão, além de uma mistura de
         simpatia e beleza física. Seu modificador de Carisma
@@ -77,7 +77,7 @@ export class AttributeService {
     ]
   }
 
-  getAttributeByName (name:ATTRIBUTE_LIST): IAttribute | null {
+  getAttributeByName (name:string): IAttribute | null {
     return this.attributes.find(attribute => attribute.name === name) ?? null
   }
 

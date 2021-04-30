@@ -1231,6 +1231,10 @@ export class SkillService {
     ]
   }
 
+  getSkillList ():ISkillSet[] {
+    return this.skills
+  }
+
   getSkillByName (name:SKILL_LIST):ISkillSet | null {
     return this.skills.find((skill) => skill.name === name) || null
   }
