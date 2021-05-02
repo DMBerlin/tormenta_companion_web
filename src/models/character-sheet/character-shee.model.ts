@@ -1,4 +1,4 @@
-import { ATTRIBUTE_LIST } from 'src/database/attributes/attribute-list.enum'
+import { ATTRIBUTE_LIST } from 'src/models/attributes/attribute-list.enum'
 import { IArmor } from 'src/types/armors/armor.types'
 import { IRace } from 'src/types/races/race-select.types'
 import { ISkill } from 'src/types/skills/skill.types'
