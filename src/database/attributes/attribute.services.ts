@@ -1,11 +1,5 @@
 import { ATTRIBUTE_LIST } from './attribute-list.enum'
-
-export interface IAttribute {
-  name:string
-  description:string
-  value:number
-  modifier:number
-}
+import { IAttribute } from './attribute.types'
 
 export class AttributeService {
   private readonly attributes:IAttribute[]

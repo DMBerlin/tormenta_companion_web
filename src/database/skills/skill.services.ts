@@ -1,24 +1,7 @@
 import { ATTRIBUTE_LIST } from '../attributes/attribute-list.enum'
 import { SKILL_LIST } from './skill-list.enum'
-import { AttributeService, IAttribute } from '../attributes/attribute.services'
-
-export interface ISkillSet {
-  name:string
-  attribute:IAttribute | null
-  description:string
-  trained:boolean
-  penalty:boolean
-  abilities?:ISkillAbility[]
-  table?:string[][]
-}
-
-export interface ISkillAbility {
-  name:string
-  cd?:number
-  trained?:boolean
-  description:string
-  table?:string[][]
-}
+import { AttributeService } from '../attributes/attribute.services'
+import { ISkillSet } from './skill.types'
 
 export class SkillService {
   private readonly skills:ISkillSet[]

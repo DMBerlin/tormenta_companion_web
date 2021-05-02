@@ -196,7 +196,7 @@
 import { Vue, Component, Prop } from 'vue-property-decorator'
 import { IModuleState } from 'src/store'
 import { IRace } from 'src/types/races/race-select.types'
-import { CharacterSheetModel } from 'src/models/character-sheet.model'
+import { CharacterSheetModel } from 'src/database/character-sheet/character-shee.model'
 
 interface IDialog {
   visible:boolean,

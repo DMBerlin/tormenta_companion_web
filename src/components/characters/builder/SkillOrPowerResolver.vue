@@ -63,9 +63,10 @@
 
 <script lang="ts">
 // import { CharacterSheetModel } from 'src/models/character-sheet.model'
+import { SkillService } from 'src/database/skills/skill.services'
+import { ISkillSet } from 'src/database/skills/skill.types'
 import { ISkillOrPowerProps } from 'src/types/builder/skill-or-powers.types'
 import { Vue, Component, Prop, Watch } from 'vue-property-decorator'
-import { ISkillSet, SkillService } from 'src/database/skills/skill.services'
 
 @Component
 export default class SkillOrPowerResolver extends Vue {

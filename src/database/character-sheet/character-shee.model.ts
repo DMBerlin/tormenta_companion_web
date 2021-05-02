@@ -1,31 +1,9 @@
+import { ATTRIBUTE_LIST } from 'src/database/attributes/attribute-list.enum'
 import { IArmor } from 'src/types/armors/armor.types'
 import { IRace } from 'src/types/races/race-select.types'
 import { ISkill } from 'src/types/skills/skill.types'
 import { IWeapon } from 'src/types/weapons/weapon.types'
-
-export enum AttributeLabels {
-  STRENGHT = 'strength',
-  DEXTERITY = 'dexterity',
-  CONSTITUTION = 'constitution',
-  INTELIGENCE = 'inteligence',
-  WISDOM = 'wisdom',
-  CHARISMA = 'charisma'
-}
-
-export enum CharacterBuilderType {
-  DEFAULT = 'default',
-  DICED = 'diced'
-}
-
-export interface AttributeStats {
-  value:number
-  mod:number
-}
-
-export interface HealthStatuses {
-  max:number
-  cur:number
-}
+import { AttributeSheetLabels, AttributeStats, CharacterBuilderType, HealthStatuses } from './character-sheet.types'
 
 export class CharacterSheetModel {
   race:IRace
@@ -92,46 +70,50 @@ export class CharacterSheetModel {
     { name, value }:
     {name:string, value:number}
   ) {
-    if (name === 'Força') {
-      this[AttributeLabels.STRENGHT] = {
-        value,
-        mod: this._getAttributeMod(value)
-      }
-    }
-    if (name === 'Destreza') {
-      this[AttributeLabels.DEXTERITY] = {
-        value,
-        mod: this._getAttributeMod(value)
-      }
-    }
-    if (name === 'Constituição') {
-      this[AttributeLabels.CONSTITUTION] = {
-        value,
-        mod: this._getAttributeMod(value)
-      }
-    }
-    if (name === 'Inteligência') {
-      this[AttributeLabels.INTELIGENCE] = {
-        value,
-        mod: this._getAttributeMod(value)
-      }
-    }
-    if (name === 'Sabedoria') {
-      this[AttributeLabels.WISDOM] = {
-        value,
-        mod: this._getAttributeMod(value)
-      }
-    }
-    if (name === 'Carisma') {
-      this[AttributeLabels.CHARISMA] = {
-        value,
-        mod: this._getAttributeMod(value)
-      }
+    switch (name) {
+      case ATTRIBUTE_LIST.FORCA:
+        this[AttributeSheetLabels.FORCA] = {
+          value,
+          mod: this._getAttributeMod(value)
+        }
+        break
+      case ATTRIBUTE_LIST.DESTREZA:
+        this[AttributeSheetLabels.DESTREZA] = {
+          value,
+          mod: this._getAttributeMod(value)
+        }
+        break
+      case ATTRIBUTE_LIST.CONSTITUICAO:
+        this[AttributeSheetLabels.CONSTITUICAO] = {
+          value,
+          mod: this._getAttributeMod(value)
+        }
+        break
+      case ATTRIBUTE_LIST.INTELIGENCIA:
+        this[AttributeSheetLabels.INTELIGENCIA] = {
+          value,
+          mod: this._getAttributeMod(value)
+        }
+        break
+      case ATTRIBUTE_LIST.SABEDORIA:
+        this[AttributeSheetLabels.SABEDORIA] = {
+          value,
+          mod: this._getAttributeMod(value)
+        }
+        break
+      case ATTRIBUTE_LIST.CARISMA:
+        this[AttributeSheetLabels.CARISMA] = {
+          value,
+          mod: this._getAttributeMod(value)
+        }
+        break
+      default:
+        throw Error('Atributo inválido.')
     }
   }
 
   setRace (race:IRace) {
     this.race = race
-    console.log(this)
+    console.log('Race set:\n', this)
   }
 }
