@@ -195,8 +195,8 @@
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator'
 import { IModuleState } from 'src/store'
-import { IRace } from 'src/types/races/race-select.types'
-import { CharacterSheetModel } from 'src/database/character-sheet/character-shee.model'
+import { CharacterSheetModel } from 'src/models/character-sheet/character-shee.model'
+import { IRace } from 'src/models/races/race-select.types'
 
 interface IDialog {
   visible:boolean,

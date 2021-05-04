@@ -120,9 +120,9 @@
 
 <script lang="ts">
 import RaceSelect from 'src/components/characters/builder/RaceSelect.vue'
+import { CharacterSheetModel } from 'src/models/character-sheet/character-shee.model'
+import { CharacterBuilderType } from 'src/models/character-sheet/character-sheet.types'
 import { Vue, Component } from 'vue-property-decorator'
-import { CharacterSheetModel } from 'src/database/character-sheet/character-shee.model'
-import { CharacterBuilderType } from 'src/database/character-sheet/character-sheet.types'
 
 @Component({
   components: {

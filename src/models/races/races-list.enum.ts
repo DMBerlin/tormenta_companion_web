@@ -1,5 +1,5 @@
 
-export enum RACE_LIST {
+export enum RACES_LIST {
   HUMANO = 'Humano',
   ANAO = 'Anão',
   DAHLLAN = 'Dahllan',
@@ -16,5 +16,7 @@ export enum RACE_LIST {
   SEREIA = 'Sereia',
   SILFIDE = 'Sílfide',
   SURAGGEL = 'Suraggel',
+  ANGELUS = 'Angelus',
+  SULFURE = 'Sulfure',
   TROGG = 'Trogg'
 }

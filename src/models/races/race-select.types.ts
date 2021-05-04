@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import { VueClass } from 'vue-class-component/lib/declarations'
-import { ISkillOrPowerProps } from 'src/types/builder/skill-or-powers.types'
+import { ISkillOrPowerProps } from 'src/models/builder/skill-or-powers.types'
 
 export interface IRaceProps {
   attributes?:string[]

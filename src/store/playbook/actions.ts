@@ -1,5 +1,5 @@
 
-import { IRace } from 'src/types/races/race-select.types'
+import { IRace } from 'src/models/races/race-select.types'
 import { ActionTree } from 'vuex'
 import { IModuleState } from '..'
 import { IPlaybookState } from './state'

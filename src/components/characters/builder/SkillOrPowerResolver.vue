@@ -63,9 +63,9 @@
 
 <script lang="ts">
 // import { CharacterSheetModel } from 'src/models/character-sheet.model'
-import { SkillService } from 'src/database/skills/skill.services'
-import { ISkillSet } from 'src/database/skills/skill.types'
-import { ISkillOrPowerProps } from 'src/types/builder/skill-or-powers.types'
+import { ISkillOrPowerProps } from 'src/models/builder/skill-or-powers.types'
+import { SkillService } from 'src/models/skills/skill.services'
+import { ISkillSet } from 'src/models/skills/skill.types'
 import { Vue, Component, Prop, Watch } from 'vue-property-decorator'
 
 @Component

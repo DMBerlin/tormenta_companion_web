@@ -4,7 +4,7 @@ import actions from './actions'
 import mutations from './mutations'
 import state from './state'
 import { IModuleState } from '..'
-import { IRace } from 'src/types/races/race-select.types'
+import { IRace } from 'src/models/races/race-select.types'
 
 export interface IPlaybookModule {
   races: IRace[]

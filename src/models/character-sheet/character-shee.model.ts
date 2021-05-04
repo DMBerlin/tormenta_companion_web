@@ -1,9 +1,9 @@
 import { ATTRIBUTE_LIST } from 'src/models/attributes/attribute-list.enum'
-import { IArmor } from 'src/types/armors/armor.types'
-import { IRace } from 'src/types/races/race-select.types'
-import { ISkill } from 'src/types/skills/skill.types'
-import { IWeapon } from 'src/types/weapons/weapon.types'
+import { IArmor } from 'src/models/armors/armor.types'
+import { IWeapon } from 'src/models/weapons/weapon.types'
+import { IRace } from '../races/races.types'
 import { AttributeSheetLabels, AttributeStats, CharacterBuilderType, HealthStatuses } from './character-sheet.types'
+import { ISkill } from '../skills/skill.types'
 
 export class CharacterSheetModel {
   race:IRace
