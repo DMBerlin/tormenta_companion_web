@@ -1,8 +1,8 @@
 import { IAttribute } from '../attributes/attribute.types'
 
-export interface ISkillSet {
+export interface ISkill {
   name:string
-  attribute:IAttribute | null
+  attribute:IAttribute | undefined
   description:string
   trained:boolean
   penalty:boolean
@@ -18,7 +18,7 @@ export interface ISkillAbility {
   table?:string[][]
 }
 
-export interface ISkill {
+export interface ISkillSet {
   name:string
   total:number
   halfLevel:number

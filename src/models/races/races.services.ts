@@ -2,6 +2,7 @@ import BonusAttributeResolver from 'src/components/characters/builder/BonusAttri
 import SkillOrPowerResolver from 'src/components/characters/builder/SkillOrPowerResolver.vue'
 import { IRace } from './races.types'
 import { RACES_LIST } from './races-list.enum'
+import { ATTRIBUTE_LIST } from '../attributes/attribute-list.enum'
 
 export class RaceService {
   readonly races:IRace[]
@@ -25,7 +26,7 @@ export class RaceService {
             description: '+2 em três atributos diferentes.',
             componentResolver: BonusAttributeResolver,
             props: {
-              attributes: ['Força', 'Constituição', 'Destreza', 'Inteligência', 'Sabedoria', 'Carisma'],
+              attributes: [ATTRIBUTE_LIST.FORCA, ATTRIBUTE_LIST.DESTREZA, ATTRIBUTE_LIST.CONSTITUICAO, ATTRIBUTE_LIST.INTELIGENCIA, ATTRIBUTE_LIST.SABEDORIA, ATTRIBUTE_LIST.CARISMA],
               maxValues: 3,
               bonus: new Map(Object.entries({ Força: 2, Constituição: 2, Destreza: 2, Inteligência: 2, Sabedoria: 2, Carisma: 2 }))
             }

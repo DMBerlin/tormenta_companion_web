@@ -1,10 +1,10 @@
 import { ATTRIBUTE_LIST } from '../attributes/attribute-list.enum'
 import { SKILL_LIST } from './skill-list.enum'
 import { AttributeService } from '../attributes/attribute.services'
-import { ISkillSet } from './skill.types'
+import { ISkill } from './skill.types'
 
 export class SkillService {
-  private readonly skills:ISkillSet[]
+  private readonly skills:ISkill[]
   private readonly attributeService:AttributeService
 
   constructor () {
@@ -1214,11 +1214,11 @@ export class SkillService {
     ]
   }
 
-  getSkillList ():ISkillSet[] {
+  getSkillList ():ISkill[] {
     return this.skills
   }
 
-  getSkillByName (name:SKILL_LIST):ISkillSet | null {
-    return this.skills.find((skill) => skill.name === name) || null
+  getSkillByName (name:SKILL_LIST):ISkill | undefined {
+    return this.skills.find((skill) => skill.name === name)
   }
 }

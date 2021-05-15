@@ -71,8 +71,8 @@ export class AttributeService {
     ]
   }
 
-  getAttributeByName (name:string): IAttribute | null {
-    return this.attributes.find(attribute => attribute.name === name) ?? null
+  getAttributeByName (name:ATTRIBUTE_LIST): IAttribute | undefined {
+    return this.attributes.find(attribute => attribute.name === name)
   }
 
   getModifierByValue (value:number):number {
