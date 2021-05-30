@@ -195,7 +195,7 @@
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator'
 import { IModuleState } from 'src/store'
-import { CharacterSheetModel } from 'src/models/character-sheet/character-shee.model'
+import { CharacterSheetModel } from 'src/models/character-sheet/character-sheet.model'
 import { IRace } from 'src/models/races/race-select.types'
 
 interface IDialog {

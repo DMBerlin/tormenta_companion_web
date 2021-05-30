@@ -18,7 +18,7 @@
 
 <script lang="ts">
 import { ATTRIBUTE_LIST } from 'src/models/attributes/attribute-list.enum'
-import { CharacterSheetModel } from 'src/models/character-sheet/character-shee.model'
+import { CharacterSheetModel } from 'src/models/character-sheet/character-sheet.model'
 import { IRaceProps } from 'src/models/races/race-select.types'
 import { Vue, Component, Prop, Watch } from 'vue-property-decorator'
 
