@@ -49,14 +49,36 @@
       <q-select
         multiple
         v-model="powers"
-        :options="['Poder A', 'Poder B']"
+        :options="powerService.getPowerList()"
         :max-values="props.options[selection].powers"
+        :display-value="powers.map(power => ' ' + power.name).toString()"
         label="Selecione o(s) poder(es)"
         class="q-ma-md"
         :rules="[
           val => val.length === props.options[selection].powers || `Necessário escolher ${props.options[selection].powers} poder(es).`
         ]"
-      />
+      >
+        <template v-slot:option="scope">
+          <q-item
+            v-bind="scope.itemProps"
+            v-on="scope.itemEvents"
+            style="max-width: 480px;"
+          >
+            <q-item-section>
+              <q-item-label class="text-body1">
+                <b>{{ scope.opt.name }}</b>
+              </q-item-label>
+              <q-item-label caption>
+                Requisitos: Nenhum.
+              </q-item-label>
+              <q-item-label class="text-body2">
+                {{ scope.opt.description }}
+              </q-item-label>
+            </q-item-section>
+          </q-item>
+          <q-separator />
+        </template>
+      </q-select>
     </template>
   </div>
 </template>
@@ -67,6 +89,8 @@ import { ISkillOrPowerProps } from 'src/models/builder/skill-or-powers.types'
 import { SkillService } from 'src/models/skills/skill.services'
 import { ISkillSet } from 'src/models/skills/skill.types'
 import { Vue, Component, Prop, Watch } from 'vue-property-decorator'
+import { PowerService } from 'src/models/powers/power.services'
+import { IPower } from 'src/models/powers/power.types'
 
 @Component
 export default class SkillOrPowerResolver extends Vue {
@@ -89,21 +113,23 @@ export default class SkillOrPowerResolver extends Vue {
 
   private selection: number
   private skills: ISkillSet[]
-  private powers: string[]
+  private powers: IPower[]
   private skillService: SkillService
+  private powerService: PowerService
 
   constructor () {
     super()
     this.selection = 0
     this.skills = <ISkillSet[]>[]
-    this.powers = <string[]>[]
+    this.powers = <IPower[]>[]
     this.skillService = new SkillService()
+    this.powerService = new PowerService()
   }
 
   @Watch('selection')
   watchOverSelection (value:number) {
     this.skills = <ISkillSet[]>[]
-    this.powers = <string[]>[]
+    this.powers = <IPower[]>[]
     console.log('SELECTION\n', value)
     // this.model.resetAttributes()
     // attributes.forEach(attribute => this.model.setAttribute({ name: attribute, value: 12 }))

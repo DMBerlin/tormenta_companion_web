@@ -694,7 +694,11 @@ export class PowerService {
     ]
   }
 
+  getPowerList (): IPower[] {
+    return this.powers
+  }
+
   getPowerByName (name:COMBAT_POWERS|MAGIC_POWERS|DESTINY_POWERS|GRANTED_POWERS|TORMENT_POWERS):IPower | undefined {
-    return this.powers.find((power) => power.name === name)
+    return this.powers ? this.powers.find((power) => power.name === name) : undefined
   }
 }

@@ -1219,6 +1219,6 @@ export class SkillService {
   }
 
   getSkillByName (name:SKILL_LIST):ISkill | undefined {
-    return this.skills.find((skill) => skill.name === name)
+    return this.skills ? this.skills.find((skill) => skill.name === name) : undefined
   }
 }
