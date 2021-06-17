@@ -3,12 +3,14 @@ import { AttributeService } from '../attributes/attribute.services'
 import { CharacterSheetService } from '../character-sheet/character-sheet.services'
 import { SKILL_LIST } from '../skills/skill-list.enum'
 import { SkillService } from '../skills/skill.services'
+import { SpellService } from '../spells/spell.services'
 import { COMBAT_POWERS, DESTINY_POWERS, GRANTED_POWERS, MAGIC_POWERS, TORMENT_POWERS } from './power-list.enum'
-import { IPower, POWER_ASSESSMENTS } from './power.types'
+import { IPower, POWER_ASSESSMENTS, POWER_DEITY } from './power.types'
 
 export class PowerService {
   private readonly powers:IPower[]
   private readonly skillService: SkillService
+  private readonly spellService: SpellService
   private readonly attributeService: AttributeService
   private readonly characterSheetService: CharacterSheetService
 
@@ -690,6 +692,139 @@ export class PowerService {
             }
           ]
         }
+      },
+      {
+        name: MAGIC_POWERS.CELEBRAR_RITUAL,
+        description: `Você pode lançar magias na forma
+          de rituais. Isso dobra seu limite de PM,
+          mas muda a execução para 1 hora (ou
+          o dobro, o que for maior). Você gasta
+          T$ 10 em incensos, oferendas
+          etc. por PM do custo total. Após esse
+          gasto, paga apenas metade do custo em
+          PM da magia (após aplicar quaisquer outros
+          efeitos de redução). Assim, um arcanista de
+          8º nível pode lançar uma magia de 16 PM gastando
+          T$ 160 e 8 PM.`,
+        requirement: {
+          params: [
+            {
+              type: this.characterSheetService, value: 8, required: true
+            },
+            {
+              type: this.skillService.getSkillByName(SKILL_LIST.MISTICISMO)
+            },
+            {
+              type: this.skillService.getSkillByName(SKILL_LIST.RELIGIAO)
+            }
+          ],
+          assessments: POWER_ASSESSMENTS.BETWEEN
+        }
+      },
+      {
+        name: MAGIC_POWERS.ESCREVER_PERGAMINHO,
+        description: `Você pode usar a perícia Ofício (escriba) para
+          fabricar pergaminhos com magias que conheça. Veja
+          a página 121 para a regra de fabricar itens e a página
+          327 para a regra de pergaminhos. De acordo com o
+          mestre, você pode usar outros objetos similares, como
+          runas, tabuletas de argila etc. Pré-requisitos: habilidade
+          de classe Magias, treinado em Ofício (escriba).`,
+        requirement: {
+          params: [
+            {
+              type: this.skillService.getSkillByName(SKILL_LIST.OFICIO)
+            },
+            {
+              type: this.spellService
+            }
+          ]
+        }
+      },
+      {
+        name: MAGIC_POWERS.FOCO_EM_MAGIA,
+        description: `Escolha uma magia. Seu custo diminui em –1 PM
+          (cumulativo com outras reduções de custo). Você pode
+          escolher este poder outras vezes para magias diferentes.`,
+        requirement: null
+      },
+      {
+        name: MAGIC_POWERS.MAGIA_ACELERADA,
+        description: `Muda a execução da magia para ação livre. Você só
+          pode aplicar este aprimoramento em magias com execução
+          de movimento, padrão ou completa e só pode
+          lançar uma magia como ação livre por rodada.`,
+        cost: '+4 PM',
+        requirement: {
+          params: [
+            {
+              type: this.spellService, value: 2
+            }
+          ]
+        }
+      },
+      {
+        name: MAGIC_POWERS.MAGIA_AMPLIADA,
+        description: `Aumenta o alcance da magia em um passo (de
+          curto para médio, de médio para longo) ou dobra
+          a área de efeito da magia. Por exemplo, uma Bola
+          de Fogo ampliada tem seu alcance aumentado para
+          longo ou sua área aumentada para 12m de raio.`,
+        cost: '+2 PM',
+        requirement: null
+      },
+      {
+        name: MAGIC_POWERS.MAGIA_DISCRETA,
+        description: `Você lança a magia sem gesticular e falar, usando
+          apenas concentração. Isso permite lançar magias
+          com as mãos presas, amordaçado etc. Também permite
+          lançar magias arcanas usando armadura sem
+          teste de Misticismo. Outros personagens só percebem
+          que você lançou uma magia se passarem num
+          teste de Misticismo (CD 20).`,
+        cost: '+2 PM'
+      },
+      {
+        name: MAGIC_POWERS.MAGIA_LIMITADA,
+        description: `Você soma seu modificador do atributo-chave
+          no limite de PM que pode gastar numa magia. Por
+          exemplo, um mago de 5º nível com Int 18 (+4) e
+          este poder pode gastar até 9 PM em cada magia`
+      },
+      {
+        name: MAGIC_POWERS.PREPARAR_POCAO,
+        description: `Você pode usar a perícia Ofício (alquimia) para
+          fabricar poções com magias que conheça de 1º e 2º
+          círculos. Veja a página 121 para a regra de fabricar
+          itens e a página 327 para a regra de poções.`,
+        requirement: {
+          params: [
+            {
+              type: this.spellService
+            },
+            {
+              type: this.skillService.getSkillByName(SKILL_LIST.OFICIO)
+            }
+          ]
+        }
+      },
+      {
+        name: GRANTED_POWERS.AFINIDADE_COM_A_TORMENTA,
+        description: 'Você recebe +10 em testes de resistência contra efeitos da Tormenta e de suas criaturas.',
+        requirement: null,
+        deity: POWER_DEITY.AHARADAK
+      },
+      {
+        name: GRANTED_POWERS.ANFIBIO,
+        description: 'Você pode respirar embaixo d’água e adquire deslocamento de natação igual a seu deslocamento terrestre.',
+        requirement: null,
+        deity: POWER_DEITY.OCEANO
+      },
+      {
+        name: GRANTED_POWERS.ARMAS_DA_AMBICAO,
+        description: 'Você recebe +1 em testes de ataque com armas nas quais é proficiente.',
+        requirement: null,
+        deity: POWER_DEITY.VALKIRIA
       }
     ]
   }
